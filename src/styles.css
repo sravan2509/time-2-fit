@@ -1,1 +1,154 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: 0;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+  background: #ffffff;
+  width: 100vw;
+}
+
+.main {
+  width: 75vw;
+  height: auto;
+}
+.sideCont {
+  width: 25vw;
+  height: 90vh;
+}
+
+.full-height {
+  height: 100vh;
+}
+.active {
+  opacity: 100%;
+}
+
+.inActive {
+  opacity: 50%;
+}
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+}
+.primaryDark {
+  color: #ffc006;
+}
+.primaryDarkBg {
+  background-color: #ffc006;
+}
+
+.primaryLight {
+  color: white;
+}
+
+.primaryLightBg {
+  background-color: white;
+}
+.secondaryDark {
+  color: #090476;
+}
+
+.secondaryDarkBg {
+  background-color: #090476;
+}
+
+.secondaryLight {
+  color: #f3f3f3;
+}
+
+.secondaryLightBg {
+  background-color: #f3f3f3;
+}
+.heading {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Quicksand',sans-serif;
+}
+.section {
+  margin-top: 20px;
+}
+.align {
+  align-items: center;
+}
+
+.image {
+  border-radius: 20px;
+  height: 200px;
+  width: 300px;
+}
+.errorMsg {
+  color: red;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+}
+
+.carousel-container {
+  padding: 30px;
+}
+.carousel-cell {
+  height: auto;
+}
+.carousel-container .owl-next,
+.carousel-container .owl-prev {
+  background-color: lightgray !important;
+  color: black !important;
+  height: 60px !important;
+  width: 60px !important;
+  border-radius: 50% !important;
+  position: absolute;
+  top: 50%;
+  transition: 0.3s all ease;
+}
+.carousel-container .owl-next {
+  right: -110px;
+  transform: translate(-50%, -50%);
+}
+.carousel-container .owl-prev {
+  left: -55px;
+  transform: translate(-50%, -50%);
+}
+.carousel-container .owl-next:hover,
+.carousel-container .owl-prev:hover {
+  background-color: #ffc006 !important ;
+  color: white !important;
+}
+.carousel-container .owl-next i,
+.carousel-container .owl-prev i {
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family:'Muli', sans-serif ;
+}

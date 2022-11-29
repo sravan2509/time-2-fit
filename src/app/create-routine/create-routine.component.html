@@ -1,0 +1,70 @@
+
+
+<app-navbar></app-navbar>
+<div class="horizontal">
+    <div class="mainCont secondaryLightBg">
+
+        <div class="heading">Add Routine</div>
+
+        <form class="from-container" [formGroup]="routineForm1">
+            <div>
+                <div class="fieldnames">Routine Name</div>
+                <input type="text" formControlName="title" placeholder="Enter routine name">
+            </div>
+            <div>
+                <div class="fieldnames">Routine Description</div>
+                <input type="text" formControlName="description" placeholder="Enter routine description">
+            </div>
+
+
+            <div>
+                <div class="fieldnames">Subtasks</div>
+            <div
+            formArrayName="routineStructure"
+            *ngFor="let subtask of routineStructureFormGroups.controls; let i = index;"
+        >
+            <div [formGroupName]="i" style="display: flex;">
+            <input type="text" formControlName="title" placeholder="title">
+            <input type="number" formControlName="duration" placeholder="duration">
+            </div>
+        </div>
+        <button type="button" class="activeBtn" (click)="addTask()">+ Add Subtask</button>
+    </div>
+
+            <div>
+                <div class="fieldnames">Videos</div>
+            <div
+            formArrayName="youtubeVideos"
+            *ngFor="let video of youtubeLinksFormGroups.controls; let i = index;"
+        >
+            <div [formGroupName]="i" style="display: flex;">
+            <input type="text" formControlName="title" placeholder="title">
+            <input type="text" formControlName="link" placeholder="Link">
+            </div>
+        </div>
+        <button type="button" class="activeBtn" (click)="addLink()">+ Add Reference Links</button>
+        </div>
+
+
+        <div>
+            <div class="fieldnames">Location</div>
+            <input type="text" formControlName="location" placeholder="Enter duration">
+        </div>
+
+            <div>
+                <button class="savebtn primaryDarkBg primaryLight" type="submit" (click)="submit()"  *ngIf=!isEdit>create</button>
+                <button class="savebtn primaryDarkBg primaryLight"  type="submit" (click)="updateRoutine()" *ngIf=isEdit>update</button>
+            </div>
+
+
+
+        </form>
+    </div>
+<div class="sideCont">
+    <app-sidebar></app-sidebar>
+</div>
+</div>
+
+
+
+

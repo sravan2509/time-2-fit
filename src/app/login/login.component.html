@@ -1,0 +1,50 @@
+<div class="horizontal">
+    <div class="partition primaryLightBg" >
+
+        <!-- BRAND NAME -->
+        <div class="horizontal brand">
+
+            <div style="margin-left:40% ; margin-top: 50px;font-size: 32px;display: flex;flex-direction: row;font-family: 'Muli', sans-serif;">
+              <img class="logoSize" src="../../assets/logo.jfif">
+              <div style="margin-top: 30px;margin-left: -10px;">
+                <span>time</span>
+                <span style="color: #FFC006">-2-</span>
+                <span>fit</span>
+              </div>
+            </div>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div class="loginSection" >
+
+            <div class="heading">Login</div>
+
+        <form [formGroup]="userForm">
+            <div>
+                <div class="fieldnames">Email*</div>
+                <input formControlName="email" type="email" placeholder="Enter your Email">
+            </div>
+            <div>
+                <div class="fieldnames">Password*</div>
+                <input formControlName="password" type="password" placeholder="Enter your Password">
+                <p *ngIf="errData.message == 'password incorrect'" class="errorMsg">Incorrect Password</p>
+
+            </div>
+            <div class="forgotPassword primaryDark">Forgot Password?</div>
+
+            <button (click)="userLogin()"  class="loginBtn primaryDarkBg primaryLight">Login</button>
+            <p *ngIf = "!alreadyUser" class="errorMsg">Please Create your Account</p>
+
+        </form>
+
+        <div class="signup"><span>Not Registered yet?</span><span routerLink="/signup" class="primaryDark createAccount">Create an Account</span></div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+

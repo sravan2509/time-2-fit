@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<p class="no-routines" *ngIf= "isDataLoaded && !routines.length">No Subscriptions found. Click &nbsp; <a routerLink='/search-page'>search
+    </a>&nbsp; to look for subscriptions</p>
+
+<!-- <button class="searchBtn primaryDarkBg primaryLight" (click)="openDialog()">open</button> -->
+
+
+
+
+<div class=" horizontal" *ngIf="isDataLoaded && routines.length">
+    <div class="mainCont">
+
+
+        <div class="heading">Subscribed Routines</div>
+
+            <div class="carousel-container">
+                <owl-carousel-o [options]="customOptions" class="horizontal routineList secondaryLightBg " *ngIf="isDataLoaded">
+                    <ng-template carouselSlide *ngFor="let routine of routines;let i as index | filter:filterTerm" class="carousel-cell " >
+                        <div class="card vertical primaryLightBg">
+
+                            <div ><img class="card-img" (click)=onSelect(routine.routineid)  src={{routineCoverPic[randomArr[routines.indexOf(i)]]}} ></div>
+                            <div class="routineName" (click)=onSelect(routine.routineid)>{{routine.title}}</div>
+
+                            <div class="card-desc inActive">{{routine.description}}</div>
+                            <div class="btns">
+                                <button (click)=onSelect(routine.routineid)
+                                    class="activeBtn primaryDarkBg primaryLight">Details</button>
+                                <button class="activeBtn"
+                                    (click)=unsubscribeRoutine(routine.routineid,i)>Unsubscribe</button>
+                                <button class="activeBtn" *ngIf="routine.creatorid==getUserid()"
+                                    (click)=deleteRoutine(routine.routineid,i)>delete</button>
+                            </div>
+                        </div>
+                    </ng-template>
+
+                  </owl-carousel-o>
+                </div>
+
+
+
+
+        <div class="heading" style="margin-bottom: 15px;">Calendar</div>
+
+            <div class="horizontal secondaryLightBg ">
+            <div class="calender-container"><ejs-calendar class="calender" id=calendar [value]='currentDate' [min]='minDate' [max]='maxDate'></ejs-calendar></div>
+            <div class="calender-routine-list">
+                <div class="heading">Routines</div>
+                <div *ngFor="let routine of routines;let i as index" class="calender-rotines">
+                    <mat-checkbox name="" id="" [(ngModel)]="routine.isChecked" (change)="changeSelection()" primary class="routine-name">{{routine.title}}</mat-checkbox>
+                </div>
+                <button class="saveBtn primaryDarkBg primaryLight" [disabled] = "checkedIDs.length == 0" (click)="createCalendarEvent()"> Save</button>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="sideCont">
+        <app-sidebar></app-sidebar>
+    </div>
+
+
+</div>

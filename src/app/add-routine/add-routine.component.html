@@ -1,0 +1,40 @@
+<!-- <p>add-routine works!</p> -->
+
+<div>
+    <form [formGroup]="routineForm" >
+        <div>
+            <div class="fieldnames">Routine Designer</div>
+            <input formControlName="routineDesigner" type="text" >
+        </div>
+        <div>
+            <div class="fieldnames">Routine Name</div>
+            <input formControlName="routineName" type="text" >
+        </div>
+        <div>
+            <div class="fieldnames">Duration</div>
+            <input formControlName="duration" type="text" >
+        </div>
+        <div>
+            <div class="fieldnames">Description</div>
+            <input formControlName="description" type="text" >
+        </div>
+
+
+          <div
+            formArrayName="items"
+            *ngFor="let item of userFormGroups.controls; let i = index;"
+        >
+            <div [formGroupName]="i">
+            <input formControlName="name" placeholder="Item name">
+            <input formControlName="description" placeholder="Item description">
+            <input formControlName="price" placeholder="Item price">
+            </div>
+        </div>
+        <button type="button" (click)="addItem()">Add Item</button>
+
+
+
+        <button type="submit" (click)="onSubmit()">Save</button>
+
+    </form>
+</div>

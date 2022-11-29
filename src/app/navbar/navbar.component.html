@@ -1,0 +1,32 @@
+<div class="navbar primaryLightBg horizontal">
+
+    <div class="horizontal" routerLink='/dashboard' style="cursor: pointer;display: flex;flex-direction: row;font-family: 'Muli', sans-serif;">
+
+          <img class="logoSize" src="../../assets/logo.jfif">
+          <div style="margin-top:5px;font-size:18px">
+            <span>time</span>
+            <span style="color: #FFC006">-2-</span>
+            <span>fit</span>
+          </div>
+    </div>
+
+    <div class="horizontal align">
+        <div><button class="searchBtn primaryDarkBg primaryLight" *ngIf="router.url!='/dashboard'"
+                routerLink="/dashboard">Dashboard</button></div>
+        <div><button class="searchBtn primaryDarkBg primaryLight" routerLink="/search-page">Search</button>
+        </div>
+        <div><button class="searchBtn primaryDarkBg primaryLight" routerLink="/login">Log Out</button>
+        </div>
+
+        <div routerLink="/profile" class="profileBtn horizontal secondaryLightBg" *ngIf="isLoaded">
+            <img *ngIf="this.userObj.profilepicture == ''" src="../../assets/default_img.png" alt="profile"
+                class="profile" />
+            <img *ngIf="this.userObj.profilepicture != ''"
+                src="{{serverUrl}}/user/get-image?name={{userObj['profilepicture']}}" alt="profile"
+                class="profile">
+
+            <div class="username">{{username | titlecase}}</div>
+        </div>
+    </div>
+
+</div>

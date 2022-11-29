@@ -1,0 +1,185 @@
+<app-navbar></app-navbar>
+<div class="horizontal">
+    <div class="main">
+
+
+
+
+
+
+        <!-- SEARCH BY ROUTINE  -->
+
+
+        <div class="secondaryLightBg" style="margin: 30px 20px 0px 30px; border-radius: 20px;padding-top: 30px;">
+            <div style="display: flex;justify-content: space-between;align-items: center;margin-left: 50px;">
+                <div class="heading"> Search Routines</div>
+                <div class="horizontal searchType primaryLightBg" style="padding: 15px;margin-right: 30px;">
+                    <img class="icon" style="margin-left: 15px;" src="../../assets/search-solid.svg">
+                    <input type="text" placeholder="search routine" [(ngModel)]="filterTerm">
+                </div>
+            </div>
+
+            <div class="carousel-container">
+
+                <owl-carousel-o [options]="customOptions" class="horizontal searchBar cardSection secondaryLightBg ">
+                    <ng-template carouselSlide
+                        *ngFor="let routine of allRoutines | filter:filterTerm"
+                        class="carousel-cell ">
+                        <div class="card vertical primaryLightBg ">
+
+                            <div><img class="card-img" (click)=onSelect(routine.routineid) src="../../assets/img.jfif">
+                            </div>
+                            <div class="routineName" (click)=onSelect(routine.routineid)>{{routine.title}}</div>
+
+                            <div class="card-desc inActive">{{routine.description}}</div>
+                            <div class="btns">
+                                <button (click)=onSelect(routine.routineid) class="activeBtn  ">More Details</button>
+                                <button (click)=subscribeRoutine(routine.routineid)
+                                    class="activeBtn primaryDarkBg primaryLight ">subscribe</button>
+
+                            </div>
+                        </div>
+                    </ng-template>
+
+                </owl-carousel-o>
+            </div>
+        </div>
+
+
+        <!-- YOUTUBE VIDEOS -->
+        <div class="youtube-search searchBar secondaryLightBg ">
+            <div>
+                <div style="display: flex;justify-content: space-between;align-items: center;">
+                    <div class="heading">Youtube Videos Search</div>
+                    <div class="horizontal searchType primaryLightBg">
+
+                        <input type="text" placeholder="search people" [(ngModel)]="searchValue">
+                        <button type="button" class="seachBtn"><img style="height: 20px;width: 20px;cursor: pointer;"
+                                (click)=" getYouTubeVideos(searchValue)" class="icon"
+                                src="../../assets/search-solid.svg"></button>
+                    </div>
+                </div>
+
+                <div class="carousel-container">
+                    <owl-carousel-o [options]="customOptions" class="horizontal cardsList secondaryLightBg ">
+                        <ng-template carouselSlide *ngFor="let video of youtubeData" class="carousel-cell ">
+                            <div class="youtubeCard vertical primaryLightBg">
+                                <div><img class="youtubeCardImg "
+                                        src="{{video['snippet']['thumbnails']['default']['url']}}"
+                                        alt="image not found"></div>
+                                <div class="videoName" (click)="openDialog(video['id']['videoId'])">
+                                    {{video['snippet']['title']}}</div>
+
+                            </div>
+                        </ng-template>
+
+                    </owl-carousel-o>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+        <div style="display: flex;flex-direction: column;justify-content: center;padding: 30px 0px;margin: 0px 20px;border-radius: 20px;align-items: center;">
+
+            <div >
+                <button class="activeBtn primaryDarkBg primaryLight " style="width: 400px;margin-top: 20px;"
+                    (click)="getRoutinesByLocationAlternate()">Search fitness centers near me</button>
+            </div>
+        </div>
+
+        <!-- SEARCH BY FRIENDS  -->
+
+        <div class="vertical mainCont">
+          <div>
+                <div class="secondaryLightBg"
+                    style="margin: 30px 20px 0px 30px; border-radius: 20px;padding-top: 30px;">
+                    <div style="display: flex;justify-content: space-between;align-items: center;margin-left: 50px;">
+                        <div class="heading"> Search People</div>
+                        <div class="horizontal searchType primaryLightBg" style="padding: 15px;margin-right: 30px;">
+                            <img class="icon" style="margin-left: 15px;" src="../../assets/user.svg">
+                            <input type="text" placeholder="search prople" [(ngModel)]="friendFilter">
+                        </div>
+                    </div>
+                    <div class="carousel-container">
+                        <owl-carousel-o [options]="customOptions1" class="horizontal cardsList secondaryLightBg "
+                            style="border-radius: 20px;margin: 0px 20px;">
+                            <ng-template carouselSlide *ngFor="let friend of allFriends | filter:friendFilter"
+                                class="carousel-cell ">
+                                <div class="cards vertical primaryLightBg">
+                                    <div>
+                                        <img *ngIf="friend.profilepicture == ''" src="../../assets/default_img.png" alt="profile"
+                class="profile" />
+            <img *ngIf="friend.profilepicture != ''"
+                src="{{serverUrl}}/user/get-image?name={{friend['profilepicture']}}" alt="profile"
+                class="profile">
+
+                                    </div>
+                                    <div class="friendName">{{friend.firstname}}</div>
+                                    <button (click)="generateRoutineDetailsOfUser(friend)"
+                                        class="activeBtn primaryDarkBg primaryLight">More Details</button>
+
+                                </div>
+                            </ng-template>
+
+                        </owl-carousel-o>
+                    </div>
+                </div>
+
+
+                <div *ngIf="isTrue" class=" friendsList ">
+                    <div class="friendCardSection vertical secondaryLightBg">
+                        <div class="horizontal primaryLightBg cardBody ">
+                            <div class="profile"><img src="../../assets/profile.svg"> </div>
+                            <div class="card-text">
+                                <div class="heading">{{friendName}}</div>
+                                <div class="desc inActive section">{{friendDescription}} </div>
+                                <div class="desc inActive section">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Nunc blandit facilisis tellus commodo em ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Nunc blandit facilisis tellus, at commodo Lorem </div>
+                            </div>
+                        </div>
+
+                        <div class="heading section">Subscribed Routines</div>
+                        <p *ngIf="friendRoutines===undefined||!friendRoutines.length">No subscribed routines</p>
+
+
+
+                        <div class="carousel-container">
+                            <owl-carousel-o [options]="customOptions"
+                                class="horizontal searchBar cardSection1 secondaryLightBg ">
+                                <ng-template carouselSlide *ngFor="let routine of friendRoutines"
+                                    class="carousel-cell ">
+                                    <div class="card vertical primaryLightBg " style="margin-right: 15px;">
+
+                                        <div><img class="card-img" src="../../assets/img.jfif"></div>
+                                        <div class="routineName">{{routine.title}}</div>
+
+                                        <div class="card-desc inActive">{{routine.description}}</div>
+                                        <div class="btns">
+                                            <button class="activeBtn primaryDarkBg primaryLight section"
+                                                (click)=onSelect(routine.routineid)>More Details</button>
+                                        </div>
+                                    </div>
+                                </ng-template>
+
+                            </owl-carousel-o>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="sideCont">
+        <app-sidebar></app-sidebar>
+    </div>
+</div>

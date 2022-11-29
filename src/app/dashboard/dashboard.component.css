@@ -1,0 +1,197 @@
+.mainCont {
+  margin: 30px 10px 10px 30px;
+  width: 75vw;
+}
+.secondaryLightBg {
+  border-radius: 20px;
+}
+.routineList {
+  align-items: center;
+  padding: 30px 50px;
+}
+.cardSection {
+  padding: 20px;
+  border-radius: 20px;
+  width: 97%;
+  margin: 20px 0px;
+  overflow-x: scroll;
+  z-index: 1;
+}
+.nextBtn {
+  height: 50px;
+  width: 50px;
+  margin-left: -25px;
+  cursor: pointer;
+  z-index: 2;
+}
+.carousel-cell {
+  height: auto;
+}
+.card {
+  padding: 15px;
+  border-radius: 10px;
+  margin-right: 10px;
+  width: 400px;
+}
+.card-img {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.routineName {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px 0px;
+}
+.displayProgress {
+  align-items: center;
+}
+.progress {
+  height: 12px;
+  width: 80%;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+}
+.progress-bar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #ffc006;
+  transition: width 0.6s ease;
+  border-radius: 20px;
+  height: 12px;
+}
+
+.days {
+  font-size: 13px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+.card-desc {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Muli', sans-serif;
+  width: 370px;
+  height: 70px;
+}
+.subscribers {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+.btns {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.activeBtn {
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Muli', sans-serif;
+  text-align: center;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.searchBar {
+  padding: 20px 30px;
+  border-radius: 20px;
+  margin: 20px 10px 20px 0px;
+}
+.searchType {
+  align-items: center;
+  padding: 15px 25px;
+  border-radius: 15px;
+  margin-right: 10px;
+  margin-left: 190px;
+  min-width: 25%;
+  width: 28%;
+  display: flex;
+  justify-content: center;
+}
+input {
+  border: none;
+  font-family: 'Muli', sans-serif;
+}
+.icon {
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
+}
+.dropdown {
+  height: 10px;
+  width: 10px;
+  margin-left: auto;
+}
+
+.searchBtn {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Muli', sans-serif;
+  text-align: center;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.no-routines {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 15%;
+}
+
+.carousel {
+  width: auto;
+  background-color: white;
+  margin-right: 15px;
+}
+
+.calender-container {
+  padding: 20px 0px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.calender-routine-list {
+  flex: 1;
+  padding: 20px 0px;
+  height: 300px;
+  overflow-y: scroll;
+}
+.calender-rotines {
+  margin: 20px 0px;
+}
+.routine-name {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'Muli', sans-serif;
+}
+.saveBtn {
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Muli', sans-serif;
+  text-align: center;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+button [disabled="disabled"],
+button:disabled {
+  background-color: lightgray;
+  color: black;
+}

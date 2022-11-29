@@ -1,0 +1,55 @@
+<div class="horizontal">
+    <div class="partition primaryLightBg" >
+
+        <!-- BRAND NAME -->
+        <div class="horizontal brand">
+            <div style="margin-left:40% ; margin-top: 50px;font-size: 32px;display: flex;flex-direction: row;font-family: 'Muli', sans-serif;">
+              <img class="logoSize" src="../../assets/logo.jfif">
+              <div style="margin-top: 30px;margin-left: -10px;">
+                <span>time</span>
+                <span style="color: #FFC006">-2-</span>
+                <span>fit</span>
+              </div>
+            </div>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <div class="loginSection">
+
+            <div class="heading">Sign Up</div>
+        <div class="text inActive">See your growth and get support!</div>
+
+        <form [formGroup]="userForm" >
+            <div>
+                <div class="fieldnames">Username*</div>
+                <input formControlName="firstName" type="text" placeholder="Enter Username">
+            </div>
+            <div>
+                <div class="fieldnames">Email*</div>
+                <input formControlName="email" type="email" placeholder="Enter your Email">
+            </div>
+            <div>
+                <div class="fieldnames">Password*</div>
+                <input formControlName="password" type="password" placeholder="Enter your Password">
+            </div>
+
+            <button type="button" (click)="signUp()"  class="loginBtn primaryDarkBg primaryLight">Signup</button>
+
+            <div class="errorMsg" *ngIf ="alreadyUser">Already You have Account Please Login!</div>
+        </form>
+
+
+
+
+        <div class="signup"><span>Already have an Account?</span><span routerLink="/login" class="primaryDark createAccount">Sign in</span></div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+

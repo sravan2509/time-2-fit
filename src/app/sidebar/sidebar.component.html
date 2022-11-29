@@ -1,0 +1,28 @@
+<div class="sideNav secondaryLightBg">
+    <!-- ADD ROUTINE  -->
+
+    <div routerLink="/create-routine" class="addBtn  primaryDarkBg primaryLight">
+        <div class="addRoutine">Add new Routine</div>
+    </div>
+
+    <!-- RECOMMENDATIONS  -->
+
+    <div class="heading">Recommendations</div>
+
+    <div *ngFor = "let routine of suggestions">
+
+        <div class="card primaryLightBg horizontal">
+            <div ><img class="image" src="../../assets/card img.jfif"></div>
+            <div>
+                <div class="routineName">{{routine.title}}</div>
+                <div class="duration inActive">{{routine.duration}}</div>
+                <button (click)= "onSelect(routine.routineid)" class="moreBtn primaryDarkBg primaryLight">More Details</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
